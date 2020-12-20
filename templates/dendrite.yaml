@@ -116,7 +116,7 @@ client_api:
 
   # Prevents new users from being able to register on this homeserver, except when
   # using the registration shared secret below.
-  registration_disabled: {{ dendrite_client_api_registration_enabled | ternary('false', 'true') }}"
+  registration_disabled: {{ dendrite_client_api_registration_enabled | ternary('false', 'true') }}
 
   # If set, allows registration by anyone who knows the shared secret, regardless of
   # whether registration is otherwise disabled.
