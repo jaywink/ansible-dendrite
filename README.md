@@ -12,6 +12,12 @@ Developed and tested on Ansible 2.9.6.
 
 ## Usage
 
+You can install this role from Ansible Galaxy with:
+
+```bash
+ansible-galaxy install jaywink.ansible_dendrite
+```
+
 The Dendrite container exposes an HTTP endpoint on localhost port 8008. You will need to
 set up a reverse proxy to handle TLS and proxy any `_matrix` path traffic to the container.
 
