@@ -1,0 +1,20 @@
+galaxy_info:
+  author: Jason Robinson
+  description: Deploy a Dendrite Matrix server using Docker.
+
+  issue_tracker_url: https://git.feneas.org/jaywink/ansible-dendrite/-/issues
+
+  license: BSD-3-Clause
+
+  min_ansible_version: 2.9
+
+  platforms:
+    - name: Ubuntu
+      versions:
+      - groovy
+
+  galaxy_tags:
+    - dendrite
+    - matrix
+
+dependencies: []

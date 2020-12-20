@@ -1,0 +1,65 @@
+---
+- name: Ensure user
+  user:
+    name: "{{ dendrite_name }}"
+  register: _user
+
+- name: Ensure config path
+  file:
+    path: "/data/{{ dendrite_name }}/config"
+    state: directory
+    mode: 0700
+    owner: "{{ dendrite_name }}"
+    group: "{{ dendrite_name }}"
+
+- name: Ensure media path
+  file:
+    path: "/data/{{ dendrite_name }}/media"
+    state: directory
+    mode: 0700
+    owner: "{{ dendrite_name }}"
+    group: "{{ dendrite_name }}"
+
+- name: Ensure logs path
+  file:
+    path: "/data/{{ dendrite_name }}/logs"
+    state: directory
+    mode: 0700
+    owner: "{{ dendrite_name }}"
+    group: "{{ dendrite_name }}"
+
+- name: Template config
+  template:
+    src: dendrite.yaml
+    dest: "/data/{{ dendrite_name }}/config/dendrite.yaml"
+    mode: 0600
+    owner: "{{ dendrite_name }}"
+    group: "{{ dendrite_name }}"
+  register: _config
+
+- name: Template signing key
+  template:
+    src: matrix_key.pem
+    dest: "/data/{{ dendrite_name }}/config/matrix_key.pem"
+    mode: 0600
+    owner: "{{ dendrite_name }}"
+    group: "{{ dendrite_name }}"
+  register: _signing_key
+
+- name: Dendrite container
+  docker_container:
+    state: started
+    name: "{{ dendrite_container_name }}"
+    image: "{{ dendrite_docker_image }}"
+    restart_policy: unless-stopped
+    restart: "{{ _config.changed or _signing_key.changed }}"
+    ports:
+      - "8008:8008"
+    volumes:
+      - "/data/{{ dendrite_name }}/config:/etc/dendrite"
+      - "/data/{{ dendrite_name }}/media:/var/dendrite/media"
+      - "/data/{{ dendrite_name }}/logs:/var/log/dendrite"
+    log_driver: json-file
+    log_options:
+      max-size: "100m"
+    user: "{{ _user.uid }}"

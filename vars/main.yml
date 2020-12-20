@@ -1,0 +1,2 @@
+---
+dendrite_database_connection_string: "postgresql://{{ dendrite_db_username }}:{{ dendrite_db_password }}@{{ dendrite_db_host }}/{{ dendrite_db_name }}?sslmode={{ dendrite_db_sslmode | ternary('enable', 'disable') }}"

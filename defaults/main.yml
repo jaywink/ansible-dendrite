@@ -1,0 +1,20 @@
+---
+# Required, no defaults
+#dendrite_server_name: domain.tld
+#dendrite_matrix_key_pem:
+#dendrite_db_host:
+#dendrite_db_password:
+
+# Optional
+dendrite_name: dendrite
+dendrite_container_name: "{{ dendrite_name }}"
+dendrite_docker_image: "matrixdotorg/dendrite-monolith:v0.3.4"
+dendrite_db_name: "{{ dendrite_name }}"
+dendrite_db_username: "{{ dendrite_name }}"
+dendrite_db_sslmode: true
+dendrite_metrics_enabled: false
+dendrite_client_api_registration_enabled: true
+
+# Unset
+#dendrite_metrics_basic_auth_username:
+#dendrite_metrics_basic_auth_password:
