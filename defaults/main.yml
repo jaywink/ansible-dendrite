@@ -16,6 +16,7 @@ dendrite_metrics_enabled: false
 dendrite_client_api_registration_enabled: true
 dendrite_container_labels: {}
 dendrite_docker_networks: []
+dendrite_client_api_registration_shared_secret: ""
 
 # Unset
 #dendrite_metrics_basic_auth_username:
