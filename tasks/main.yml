@@ -63,3 +63,5 @@
     log_options:
       max-size: "100m"
     user: "{{ _user.uid }}"
+    labels: "{{ dendrite_container_labels }}"
+    networks: "{{ dendrite_docker_networks }}"

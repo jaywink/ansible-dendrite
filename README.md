@@ -51,6 +51,8 @@ Now you can run the play and get a fresh Dendrite.
 * `dendrite_metrics_basic_auth_username` - Username for basic auth of metrics (defaults to empty - no basic auth)
 * `dendrite_metrics_basic_auth_password` - Password for basic auth of metrics (defaults to empty - must be set if username is set)
 * `dendrite_client_api_registration_enabled` - Whether to allow registrations (defaults to `true`)
+* `dendrite_container_labels` - Labels to add to the container (defaults to empty dictionary)
+* `dendrite_docker_networks` - Additional docker networks to connect to (defaults to empty list)
 
 ### Dependencies
 

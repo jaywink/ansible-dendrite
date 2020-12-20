@@ -14,6 +14,8 @@ dendrite_db_username: "{{ dendrite_name }}"
 dendrite_db_sslmode: true
 dendrite_metrics_enabled: false
 dendrite_client_api_registration_enabled: true
+dendrite_container_labels: {}
+dendrite_docker_networks: []
 
 # Unset
 #dendrite_metrics_basic_auth_username:
