@@ -104,8 +104,14 @@ app_service_api:
     conn_max_lifetime: -1
 
   # Appservice configuration files to load into this homeserver.
+{% if dendrite_appservices | count > 0 %}
+  config_files:
+{% for _appservice in dendrite_appservices %}
+    - "/etc/dendrite/appservice-{{ _appservice.id }}.yaml"
+{% endfor %}
+{% else %}
   config_files: []
-
+{% endif %}
 # Configuration for the Client API.
 client_api:
   internal_api:

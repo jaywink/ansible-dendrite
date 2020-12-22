@@ -37,6 +37,18 @@
     group: "{{ dendrite_name }}"
   register: _config
 
+- name: Template appservices
+  template:
+    src: appservice.yaml
+    dest: "/data/{{ dendrite_name }}/config/appservice-{{ _appservice.id }}.yaml"
+    mode: 0600
+    owner: "{{ dendrite_name }}"
+    group: "{{ dendrite_name }}"
+  loop: "{{ dendrite_appservices }}"
+  loop_control:
+    loop_var: _appservice
+  register: _appservices
+
 - name: Template signing key
   template:
     src: matrix_key.pem
@@ -52,7 +64,7 @@
     name: "{{ dendrite_container_name }}"
     image: "{{ dendrite_docker_image }}"
     restart_policy: unless-stopped
-    restart: "{{ _config.changed or _signing_key.changed }}"
+    restart: "{{ _config.changed or _signing_key.changed or _appservices.changed }}"
     ports:
       - "8008:8008"
     volumes:
