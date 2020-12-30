@@ -65,6 +65,10 @@ Now you can run the play and get a fresh Dendrite.
 
 None
 
+## contributions
+
+Contributions welcome here or the GitHub mirror at https://github.com/jaywink/ansible-dendrite
+
 ## License
 
 BSD
