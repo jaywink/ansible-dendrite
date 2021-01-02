@@ -339,3 +339,14 @@ logging:
   level: info
   params:
     path: /var/log/dendrite
+
+{% if dendrite_enabled_mscs | count > 0 %}
+# MSC's config
+mscs:
+  mscs: {{ dendrite_enabled_mscs }}
+  database:
+    connection_string: "{{ dendrite_database_connection_string }}"
+    max_open_conns: 10
+    max_idle_conns: 2
+    conn_max_lifetime: -1
+{% endif %}

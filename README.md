@@ -60,6 +60,7 @@ Now you can run the play and get a fresh Dendrite.
 * `dendrite_client_api_registration_shared_secret` - Registration shared secret for registering users (defaults to empty)
 * `dendrite_container_labels` - Labels to add to the container (defaults to empty dictionary)
 * `dendrite_docker_networks` - Additional docker networks to connect to (defaults to empty list)
+* `dendrite_enabled_mscs` - A list of MSC's to enable (defaults to empty, list should have lowercase items, for example `msc2836`)
 
 ### Dependencies
 

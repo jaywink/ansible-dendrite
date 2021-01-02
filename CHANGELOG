@@ -1,5 +1,9 @@
 # Changelog
 
+## unreleased
+
+* Add config option `dendrite_enabled_mscs` to enable MSC's supported by Dendrite. Defaults to an empty list.
+
 ## v1.0.0 - 2020-12-30
 
 * Initial release
