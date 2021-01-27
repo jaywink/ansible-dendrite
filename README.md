@@ -49,7 +49,7 @@ Now you can run the play and get a fresh Dendrite.
 
 * `dendrite_name` - The name of the instance and user on the host to use, will be created (default: `dendrite`)
 * `dendrite_container_name` - Name to use for the Docker container (defaults to value of `dendrite_name` variable)
-* `dendrite_docker_image` - Docker image to use (defaults to: `matrixdotorg/dendrite-monolith:v0.3.6`)
+* `dendrite_docker_image` - Docker image to use (defaults to: `matrixdotorg/dendrite-monolith:v0.3.7`)
 * `dendrite_db_name` - Database name to use (defaults to value of `dendrite_name` variable)
 * `dendrite_db_username` - Database user to use (defaults to value of `dendrite_name` variable)
 * `dendrite_db_sslmode` - Database SSL mode, set to `false` if your database is within an internal network (defaults to `true`)
