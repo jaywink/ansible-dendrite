@@ -2,7 +2,7 @@
 
 ## unreleased
 
-* Bump Dendrite version to v0.3.8
+* Bump Dendrite version to v0.3.10
 
 ## v1.1.0
 

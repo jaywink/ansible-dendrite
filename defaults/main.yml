@@ -8,7 +8,7 @@
 # Optional
 dendrite_name: dendrite
 dendrite_container_name: "{{ dendrite_name }}"
-dendrite_docker_image: "matrixdotorg/dendrite-monolith:v0.3.8"
+dendrite_docker_image: "matrixdotorg/dendrite-monolith:v0.3.10"
 dendrite_db_name: "{{ dendrite_name }}"
 dendrite_db_username: "{{ dendrite_name }}"
 dendrite_db_sslmode: true
