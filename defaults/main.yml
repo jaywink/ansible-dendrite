@@ -19,6 +19,10 @@ dendrite_docker_networks: []
 dendrite_client_api_registration_shared_secret: ""
 dendrite_appservices: []
 dendrite_enabled_mscs: []
+# Set to true to enable logging to file in addition to stdout
+# Logs will go to /var/log/dendrite
+# WARNING! There is no auto-deletion of old logs.
+dendrite_logging_file: false
 
 # Unset
 #dendrite_metrics_basic_auth_username:

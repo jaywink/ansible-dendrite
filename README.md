@@ -61,6 +61,8 @@ Now you can run the play and get a fresh Dendrite.
 * `dendrite_container_labels` - Labels to add to the container (defaults to empty dictionary)
 * `dendrite_docker_networks` - Additional docker networks to connect to (defaults to empty list)
 * `dendrite_enabled_mscs` - A list of MSC's to enable (defaults to empty, list should have lowercase items, for example `msc2836`)
+* `dendrite_logging_file` - Set to true to enable logging to file in addition to stdout (default false).
+  Logs will go to `/var/log/dendrite`. WARNING! There is no auto-deletion of old logs.
 
 ### Dependencies
 

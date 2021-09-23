@@ -334,11 +334,15 @@ tracing:
 
 # Logging configuration, in addition to the standard logging that is sent to
 # stdout by Dendrite.
+{% if dendrite_logging_file %}
 logging:
 - type: file
   level: info
   params:
     path: /var/log/dendrite
+{% else %}
+logging: []
+{% endif %}
 
 {% if dendrite_enabled_mscs | count > 0 %}
 # MSC's config
