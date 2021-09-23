@@ -2,7 +2,7 @@ galaxy_info:
   author: Jason Robinson
   description: Deploy a Dendrite Matrix server using Docker.
 
-  issue_tracker_url: https://git.feneas.org/jaywink/ansible-dendrite/-/issues
+  issue_tracker_url: https://github.com/jaywink/ansible-dendrite/issues
 
   license: BSD-3-Clause
 
