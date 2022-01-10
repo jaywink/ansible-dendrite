@@ -8,7 +8,7 @@
 # Optional
 dendrite_name: dendrite
 dendrite_container_name: "{{ dendrite_name }}"
-dendrite_docker_image: "matrixdotorg/dendrite-monolith:v0.5.0"
+dendrite_docker_image: "matrixdotorg/dendrite-monolith:v0.5.1"
 dendrite_db_name: "{{ dendrite_name }}"
 dendrite_db_username: "{{ dendrite_name }}"
 dendrite_db_sslmode: true
@@ -18,7 +18,9 @@ dendrite_container_labels: {}
 dendrite_docker_networks: []
 dendrite_client_api_registration_shared_secret: ""
 dendrite_appservices: []
-dendrite_enabled_mscs: []
+dendrite_enabled_mscs:
+  - msc2836
+  - msc2946
 # Set to true to enable logging to file in addition to stdout
 # Logs will go to /var/log/dendrite
 # WARNING! There is no auto-deletion of old logs.

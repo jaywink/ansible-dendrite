@@ -52,11 +52,19 @@ global:
   # considered valid by other homeservers.
   key_validity_period: 168h0m0s
 
+  # The server name to delegate server-server communications to, with optional port
+  # e.g. localhost:443
+  well_known_server_name: ""
+
   # Lists of domains that the server will trust as identity servers to verify third
   # party identifiers such as phone numbers and email addresses.
   trusted_third_party_id_servers:
   - matrix.org
   - vector.im
+
+  # Disables federation. Dendrite will not be able to make any outbound HTTP requests
+  # to other servers and the federation API will not be exposed.
+  disable_federation: false
 
   # Configuration for Kafka/Naffka.
   kafka:
@@ -92,6 +100,17 @@ global:
       password: {{ dendrite_metrics_basic_auth_password }}
 {% endif %}
 
+  # DNS cache options. The DNS cache may reduce the load on DNS servers
+  # if there is no local caching resolver available for use.
+  dns_cache:
+    # Whether or not the DNS cache is enabled.
+    enabled: false
+
+    # Maximum number of entries to hold in the DNS cache, and
+    # for how long those items should be considered valid in seconds.
+    cache_size: 256
+    cache_lifetime: "5m" # 5minutes; see https://pkg.go.dev/time@master#ParseDuration for more
+
 # Configuration for the Appservice API.
 app_service_api:
   internal_api:
@@ -103,6 +122,11 @@ app_service_api:
     max_idle_conns: 2
     conn_max_lifetime: -1
 
+  # Disable the validation of TLS certificates of appservices. This is
+  # not recommended in production since it may allow appservice traffic
+  # to be sent to an unverified endpoint.
+  disable_tls_validation: false
+
   # Appservice configuration files to load into this homeserver.
 {% if dendrite_appservices | count > 0 %}
   config_files:
@@ -112,6 +136,7 @@ app_service_api:
 {% else %}
   config_files: []
 {% endif %}
+
 # Configuration for the Client API.
 client_api:
   internal_api:
@@ -249,6 +274,15 @@ media_api:
     height: 480
     method: scale
 
+# Configuration for experimental MSC's
+mscs:
+  mscs: {{ dendrite_enabled_mscs }}
+  database:
+    connection_string: "{{ dendrite_database_connection_string }}"
+    max_open_conns: 10
+    max_idle_conns: 2
+    conn_max_lifetime: -1
+
 # Configuration for the Room Server.
 room_server:
   internal_api:
@@ -300,6 +334,11 @@ sync_api:
     max_idle_conns: 2
     conn_max_lifetime: -1
 
+  # This option controls which HTTP header to inspect to find the real remote IP
+  # address of the client. This is likely required if Dendrite is running behind
+  # a reverse proxy server.
+  # real_ip_header: X-Real-IP
+
 # Configuration for the User API.
 user_api:
   internal_api:
@@ -315,6 +354,11 @@ user_api:
     max_open_conns: 10
     max_idle_conns: 2
     conn_max_lifetime: -1
+  # The length of time that a token issued for a relying party from
+  # /_matrix/client/r0/user/{userId}/openid/request_token endpoint
+  # is considered to be valid in milliseconds.
+  # The default lifetime is 3600000ms (60 minutes).
+  # openid_token_lifetime_ms: 3600000
 
 # Configuration for Opentracing.
 # See https://github.com/matrix-org/dendrite/tree/master/docs/tracing for information on
@@ -342,15 +386,4 @@ logging:
     path: /var/log/dendrite
 {% else %}
 logging: []
-{% endif %}
-
-{% if dendrite_enabled_mscs | count > 0 %}
-# MSC's config
-mscs:
-  mscs: {{ dendrite_enabled_mscs }}
-  database:
-    connection_string: "{{ dendrite_database_connection_string }}"
-    max_open_conns: 10
-    max_idle_conns: 2
-    conn_max_lifetime: -1
 {% endif %}
