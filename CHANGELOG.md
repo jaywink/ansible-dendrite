@@ -1,6 +1,6 @@
 # Changelog
 
-## unreleased
+## v2.0.0
 
 * **Breaking change**: File logging is now disabled by default, it can be enabled by setting
   `dendrite_logging_file: true`.
