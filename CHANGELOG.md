@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.1.0
+
+* Bump Dendrite to v0.6.2
+
 ## v2.0.0
 
 * **Breaking change**: File logging is now disabled by default, it can be enabled by setting
