@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.3.0
+
+* Bump Dendrite to v0.8.1
+
+* Allow configuring presence
+
 ## v2.2.0
 
 * Bump Dendrite to v0.6.4

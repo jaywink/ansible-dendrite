@@ -49,7 +49,7 @@ Now you can run the play and get a fresh Dendrite.
 
 * `dendrite_name` - The name of the instance and user on the host to use, will be created (default: `dendrite`)
 * `dendrite_container_name` - Name to use for the Docker container (defaults to value of `dendrite_name` variable)
-* `dendrite_docker_image` - Docker image to use (defaults to: `matrixdotorg/dendrite-monolith:v0.6.4`)
+* `dendrite_docker_image` - Docker image to use (defaults to: `matrixdotorg/dendrite-monolith:v0.8.1`)
 * `dendrite_db_name` - Database name to use (defaults to value of `dendrite_name` variable)
 * `dendrite_db_username` - Database user to use (defaults to value of `dendrite_name` variable)
 * `dendrite_db_sslmode` - Database SSL mode, set to `false` if your database is within an internal network (defaults to `true`)
@@ -63,6 +63,8 @@ Now you can run the play and get a fresh Dendrite.
 * `dendrite_enabled_mscs` - A list of MSC's to enable (defaults to empty, list should have lowercase items, for example `msc2836`)
 * `dendrite_logging_file` - Set to true to enable logging to file in addition to stdout (default false).
   Logs will go to `/var/log/dendrite`. WARNING! There is no auto-deletion of old logs.
+* `dendrite_presence_enable_inbound` - Set to true to enable inbound presence (defaults to false)
+* `dendrite_presence_enable_outbound` - Set to true to enable outbound presence (defaults to false)
 
 ### Dependencies
 

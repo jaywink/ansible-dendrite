@@ -8,7 +8,7 @@
 # Optional
 dendrite_name: dendrite
 dendrite_container_name: "{{ dendrite_name }}"
-dendrite_docker_image: "matrixdotorg/dendrite-monolith:v0.6.4"
+dendrite_docker_image: "matrixdotorg/dendrite-monolith:v0.8.1"
 dendrite_db_name: "{{ dendrite_name }}"
 dendrite_db_username: "{{ dendrite_name }}"
 dendrite_db_sslmode: true
@@ -25,6 +25,9 @@ dendrite_enabled_mscs:
 # Logs will go to /var/log/dendrite
 # WARNING! There is no auto-deletion of old logs.
 dendrite_logging_file: false
+# Presence
+dendrite_presence_enable_inbound: false
+dendrite_presence_enable_outbound: false
 
 # Unset
 #dendrite_metrics_basic_auth_username:
