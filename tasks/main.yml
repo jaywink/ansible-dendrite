@@ -28,6 +28,14 @@
     owner: "{{ dendrite_name }}"
     group: "{{ dendrite_name }}"
 
+- name: Ensure jetstream path
+  file:
+    path: "/data/{{ dendrite_name }}/jetstream"
+    state: directory
+    mode: 0700
+    owner: "{{ dendrite_name }}"
+    group: "{{ dendrite_name }}"
+
 - name: Template config
   template:
     src: dendrite.yaml
@@ -71,6 +79,7 @@
       - "/data/{{ dendrite_name }}/config:/etc/dendrite"
       - "/data/{{ dendrite_name }}/media:/var/dendrite/media"
       - "/data/{{ dendrite_name }}/logs:/var/log/dendrite"
+      - "/data/{{ dendrite_name }}/jetstream:/var/dendrite/jetstream"
     log_driver: json-file
     log_options:
       max-size: "100m"

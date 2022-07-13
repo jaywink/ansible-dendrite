@@ -8,7 +8,7 @@
 # Optional
 dendrite_name: dendrite
 dendrite_container_name: "{{ dendrite_name }}"
-dendrite_docker_image: "matrixdotorg/dendrite-monolith:v0.8.1"
+dendrite_docker_image: "matrixdotorg/dendrite-monolith:v0.8.9"
 dendrite_db_name: "{{ dendrite_name }}"
 dendrite_db_username: "{{ dendrite_name }}"
 dendrite_db_sslmode: true
@@ -28,6 +28,8 @@ dendrite_logging_file: false
 # Presence
 dendrite_presence_enable_inbound: false
 dendrite_presence_enable_outbound: false
+# Stats reporting
+dendrite_report_stats_enabled: false
 
 # Unset
 #dendrite_metrics_basic_auth_username:

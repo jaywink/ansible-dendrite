@@ -1,5 +1,14 @@
 # Changelog
 
+## v2.4.0
+
+* Bump Dendrite to v0.8.9
+
+* Add config option `dendrite_report_stats_enabled` which by default is `false`. Controls
+  reporting server statistics to matrix.org.
+
+* Fix missing persisting of JetStream path
+
 ## v2.3.0
 
 * Bump Dendrite to v0.8.1
