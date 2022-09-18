@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.6.0
+
+* Bump Dendrite to v0.9.8
+
 ## v2.5.0
 
 * Bump Dendrite to v0.9.6
